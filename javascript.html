@@ -41,35 +41,50 @@
             </div>
             <div id="cartList" style="bottom:0.5%;position:absolute;left:0.5%;width:30%;height:46%">
                 <h1 style="text-align:center">Cart</h1>
+                <div id="photos"></div>
 		    <script>
+            var x = 0;
+            var cart = [];
+            var cartTotal = 0;
             function addProduct(){
                 let files = document.getElementById("image").files;
                 if (files && files.length) {
                     var fr = new FileReader();
                     fr.onload=function(){
-                        var img = document.createElement("img");
+                        var img = document.createElement("img");img.setAttribute("id","proimg");
                         img.src=fr.result;img.style="height: 150px;width : 150px";
                         var container=document.createElement("div");container.style="display:flex;border-bottom:1px solid black";
                         var div=document.createElement("div");div.appendChild(img);div.style="width:25%;height:15%";
                         var div2=document.createElement("div");div2.style="width:50%;height:15%";
                         var div3=document.createElement("div");div3.style="width:25%;height:15%;";
-                        var proname=document.createElement("h3");proname.setAttribute("id",proname);
-                        var prodetails = document.createElement("h3");prodetails.setAttribute("id",prodetails);
-                        var proquantity = document.createElement("h3");proquantity.setAttribute("id",proquantity); 
-                        var proprice = document.createElement("h3");proprice.setAttribute("id",proprice);
-                        var btn=document.createElement('button'); btn.setAttribute("id",btn);btn.setAttribute("onclick",addCart());
-                    
-                        proname.innerHTML="Product-Name : "+document.getElementById("name").value;
+                        var proname=document.createElement("h2");
+                        var prodetails = document.createElement("p");
+                        var proquantity = document.createElement("p");var q=document.createElement("p");q.innerHTML=" QTY"
+                        var proprice = document.createElement("p");var p = document.createElement("p");p.innerHTML = " Rs."
+                        var btn=document.createElement('button');
+                       
+                        
+                        proname.id = "name" + x;
+                        prodetails.id = "desc" + x;
+                        proprice.id = "price" + x;
+                        proquantity.id = "qty" + x;
+                        btn.id = x;
+
+                        btn.onclick = function () {
+                        addCart(this.id);
+                        }
+                        proname.innerHTML=document.getElementById("name").value;
+                        
                         div2.appendChild(proname);
                     
-                        prodetails.innerHTML="Price-Description : "+document.getElementById("details").value;
+                        prodetails.innerHTML=document.getElementById("details").value;
                         div2.appendChild(prodetails);
                     
-                        proprice.innerHTML="Product-Price : "+document.getElementById("price").value;
-                        div2.appendChild(proprice);
+                        proprice.innerHTML=document.getElementById("price").value;
+                        div2.appendChild(proprice);div2.appendChild(p);
                     
-                        proquantity.innerHTML="Product-Quantity : "+document.getElementById("quantity").value;
-                        div2.appendChild(proquantity);
+                        proquantity.innerHTML=document.getElementById("quantity").value;
+                        div2.appendChild(proquantity);div2.appendChild(q);
                     
                         btn.innerHTML="Add to Cart";btn.style="background-color:blue;color:honeydew;height:40px";div3.appendChild(btn);
                     
@@ -82,12 +97,21 @@
                         document.getElementById("details").value = "";
                         document.getElementById("quantity").value = "";
                         document.getElementById("price").value = "";
+                        x++;
                     }
                     fr.readAsDataURL(files[0]);
                 }
             }
-            function addCart(){
-               
+            function addCart(x){
+                var image = document.getElementById("proimg").src;
+                var div = document.createElement('div'); 
+                var img = document.createElement('img');img.style="height: 150px;width : 150px"; 
+                var h4 = document.createElement('h4'); 
+                img.src = image
+                h4.innerHTML=document.getElementById("name" + x).innerHTML;
+                div.appendChild(img); 
+                div.appendChild(h4);  
+                document.getElementById('photos').appendChild(div);
             }
         
             </script>
