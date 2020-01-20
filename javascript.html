@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <body>  
+        <style>
+        button{
+            background-color:blue;
+			color: honeydew;
+			padding: 5px;
+		}
+        #pList{
+            border-style: solid;
+        }
+        #cartList{
+            border-style: solid;
+        }
+        #ap{
+            border-style: solid;
+        }
+        #proname,#prodetails,#proquantity,#proprice{
+            float: right;
+        }
+        </style>
+        <div class="a">
+            <div style="width:100%;height:100%">
+            <div id="ap" style="left:0.5%;width:30%;height:49%;top: 0.5%;position:absolute">
+                <h1 style="text-align:center">Add Products</h1>
+                <label  for="Productname"><b>Product Name</b></label>
+                <input type="text" placeholder="Enter product name"  id="name" ><br><br>
+                <label  for="image"><b>Product Image</b></label>
+                <input type="file" placeholder="Choose file"  id="image" accept=".png, .jpg, .jpeg" required ><br><br>
+                <label  for="ProductDetails"><b>Product detail</b></label>
+                <input type="text" placeholder="Enter product detail"  id="details" required ><br><br>
+                <label  for="quantity"><b>Product quantity</b></label>
+                <input type="number" placeholder="Enter quantity"  id="quantity" required ><br><br>
+                <label  for="Price"><b>Product \Price</b></label>
+                <input type="number" placeholder="Enter price"  id="price" required ><br><br>
+                <button onclick="addProduct()">Add Product</button>
+            </div> 
+            <div id="pList" style="right:0.5%;bottom:0.5%;width:67%;top: 0.5%;position:absolute">
+                <h1 style="text-align:center">Product List<hr style="border: 1px solid black"></h1>
+            </div>
+            <div id="cartList" style="bottom:0.5%;position:absolute;left:0.5%;width:30%;height:46%">
+                <h1 style="text-align:center">Cart</h1>
+		    <script>
+            function addProduct(){
+                let files = document.getElementById("image").files;
+                if (files && files.length) {
+                    var fr = new FileReader();
+                    fr.onload=function(){
+                        var img = document.createElement("img");
+                        img.src=fr.result;img.style="height: 150px;width : 150px";
+                        var container=document.createElement("div");container.style="display:flex;border-bottom:1px solid black";
+                        var div=document.createElement("div");div.appendChild(img);div.style="width:25%;height:15%";
+                        var div2=document.createElement("div");div2.style="width:50%;height:15%";
+                        var div3=document.createElement("div");div3.style="width:25%;height:15%;";
+                        var proname=document.createElement("h3");proname.setAttribute("id",proname);
+                        var prodetails = document.createElement("h3");prodetails.setAttribute("id",prodetails);
+                        var proquantity = document.createElement("h3");proquantity.setAttribute("id",proquantity); 
+                        var proprice = document.createElement("h3");proprice.setAttribute("id",proprice);
+                        var btn=document.createElement('button'); btn.setAttribute("id",btn);btn.setAttribute("onclick",addCart());
+                    
+                        proname.innerHTML="Product-Name : "+document.getElementById("name").value;
+                        div2.appendChild(proname);
+                    
+                        prodetails.innerHTML="Price-Description : "+document.getElementById("details").value;
+                        div2.appendChild(prodetails);
+                    
+                        proprice.innerHTML="Product-Price : "+document.getElementById("price").value;
+                        div2.appendChild(proprice);
+                    
+                        proquantity.innerHTML="Product-Quantity : "+document.getElementById("quantity").value;
+                        div2.appendChild(proquantity);
+                    
+                        btn.innerHTML="Add to Cart";btn.style="background-color:blue;color:honeydew;height:40px";div3.appendChild(btn);
+                    
+                        container.appendChild(div);
+                        container.appendChild(div2);
+                        container.appendChild(div3);
+                        document.getElementById("pList").appendChild(container);
+                        document.getElementById("name").value = "";
+                        document.getElementById("image").value = "";
+                        document.getElementById("details").value = "";
+                        document.getElementById("quantity").value = "";
+                        document.getElementById("price").value = "";
+                    }
+                    fr.readAsDataURL(files[0]);
+                }
+            }
+            function addCart(){
+               
+            }
+        
+            </script>
+		    </div>
+	        </div>
+        </div>
+</body>
+</html>
