@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "JC",
+            "command": "java",
+            "windows": {
+                "command": "C:\\Program Files\\Java\\jdk-13.0.2\\bin\\javac.exe"
+            },
+            "args": [
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "JR",
+            "command": "java",
+            "windows": {
+                "command": "C:\\Program Files\\Java\\jdk-13.0.2\\bin\\java.exe"
+            },
+            "args": [
+                "-cp",
+                "${fileDirname}",
+                "${fileBasenameNoExtension}"
+            ]
+        }
+    ]
+}
