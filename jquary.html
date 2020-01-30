@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var marke=0;
+			$("#div2").hide();
+			$("#div3").hide();
+			$("#div4").hide();
+			$("#div5").hide();
+			$("#again").hide();
+			$("#next").click(function(){
+				if($("#div1").is(":visible")){
+					if($("input[name='q1']:checked").val()!=null){
+						if($("input[name='q1']:checked").val()==2){
+							marke++;
+						}
+						$("#div1").hide();
+						$("#div2").show();
+					}else{
+						alert("You have not selected any option!!!")
+					}
+				}else if($("#div2").is(":visible")){
+					if($("input[name='q2']:checked").val()!=null){
+						if($("input[name='q2']:checked").val()==4){
+							marke++;
+						}
+						$("#div2").hide();
+						$("#div3").show();
+					}else{
+						alert("You have not selected any option!!!")
+					}
+
+				}else if($("#div3").is(":visible")){
+					if($("input[name='q3']:checked").val()!=null){
+						if($("input[name='q3']:checked").val()==6){
+							marke++;
+						}
+						$("#div3").hide();
+						$("#div4").show();
+					}else{
+						alert("You have not selected any option!!!")
+					}
+
+				}else if($("#div4").is(":visible")){
+					if($("input[name='q4']:checked").val()!=null){
+						if($("input[name='q4']:checked").val()==8){
+							marke++;
+						}
+						$("#div4").hide();
+						$("#div5").show();
+					}else{
+						alert("You have not selected any option!!!")
+					}
+
+				}else if($("#div5").is(":visible")){
+					if($("input[name='q5']:checked").val()!=null){
+						if($("input[name='q5']:checked").val()==10){
+							marke++;
+						}
+						$("#div5").hide();
+						$("#next").hide();
+						$("#result").html("Result="+marke+"/5");
+						$("#again").show();
+					}else{
+						alert("You have not selected any option!!!")
+					}
+
+				}
+			});
+			$("#again").click(function(){
+				location.reload(true);
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div id="div1"><h1>1+1=?</h1>
+		<input type="radio" name="q1" value="1" /> 1
+		<input type="radio" name="q1" value="2" /> 2
+		<input type="radio" name="q1" value="3" /> 3
+		<input type="radio" name="q1" value="4" /> 4
+		<br>
+	</div>
+
+	<div id="div2"><h1>2+2=?</h1>
+		<input type="radio" name="q2" value="3" /> 3
+		<input type="radio" name="q2" value="4" /> 4
+		<input type="radio" name="q2" value="5" /> 5
+		<input type="radio" name="q2" value="6" /> 6
+		<br>
+	</div>
+
+	<div id="div3"><h1>3+3=?</h1>
+		<input type="radio" name="q3" value="4" /> 4
+		<input type="radio" name="q3" value="5" /> 5
+		<input type="radio" name="q3" value="6" /> 6
+		<input type="radio" name="q3" value="7" /> 7
+		<br>
+	</div>
+
+	<div id="div4"><h1>4+4=?</h1>
+		<input type="radio" name="q4" value="5" /> 5
+		<input type="radio" name="q4" value="6" /> 6
+		<input type="radio" name="q4" value="7" /> 7
+		<input type="radio" name="q4" value="8" /> 8
+		<br>
+	</div>
+
+	<div id="div5"><h1>5+5=?</h1>
+		<input type="radio" name="q5" value="10" /> 10
+		<input type="radio" name="q5" value="11" /> 11
+		<input type="radio" name="q5" value="12" /> 12
+		<input type="radio" name="q5" value="13" /> 13
+		<br>
+	</div>
+
+	<h1><div id="result"></div></h1>
+
+
+	<button id="next">Next</button>
+	<button id="again">Start again</button>
+
+</body>
+</html>
