@@ -1,121 +1,10 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-.bgimg {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('quiz-time.jpg');
-  min-height: 100%;
-}
-h1 {
-   font-size: 500%;
-}
-#div1,#div2,#div3,#div4,#div5{
-	font-size: 180%;
-}
-</style>
-<body>
-
-<!-- Sidebar with image -->
-<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
-  <div class="bgimg"></div>
-</nav>
-
-
-<!-- Page Content -->
-<div class="w3-main w3-padding-large" style="margin-left:40%">
-
-  <!-- Header -->
-  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
-  	
-  	<div id="quiz-time">
-  		<h1 class="w3-jumbo"><b>Quiz Time</b></h1>
-    	<p>Please click a button to start a quiz.</p>
-    	<button class="w3-button w3-light-grey w3-padding-large w3-margin-top" id="btnStart" onclick="start()">
-      	 Start
-    	</button>
-  	</div>
-  	
-
-  	<div id="quiz">
-  		<div id="div1"><h1>1+1=?</h1>
-		<input type="radio" name="q1" value="1" /> 1
-		<input type="radio" name="q1" value="2" /> 2
-		<input type="radio" name="q1" value="3" /> 3
-		<input type="radio" name="q1" value="4" /> 4
-		<br>
-		</div>
-
-		<div id="div2"><h1>2+2=?</h1>
-		<input type="radio" name="q2" value="3" /> 3
-		<input type="radio" name="q2" value="4" /> 4
-		<input type="radio" name="q2" value="5" /> 5
-		<input type="radio" name="q2" value="6" /> 6
-		<br>
-		</div>
-
-		<div id="div3"><h1>3+3=?</h1>
-		<input type="radio" name="q3" value="4" /> 4
-		<input type="radio" name="q3" value="5" /> 5
-		<input type="radio" name="q3" value="6" /> 6
-		<input type="radio" name="q3" value="7" /> 7
-		<br>
-		</div>
-
-		<div id="div4"><h1>4+4=?</h1>
-		<input type="radio" name="q4" value="5" /> 5
-		<input type="radio" name="q4" value="6" /> 6
-		<input type="radio" name="q4" value="7" /> 7
-		<input type="radio" name="q4" value="8" /> 8
-		<br>
-		</div>
-
-		<div id="div5"><h1>5+5=?</h1>
-		<input type="radio" name="q5" value="10" /> 10
-		<input type="radio" name="q5" value="11" /> 11
-		<input type="radio" name="q5" value="12" /> 12
-		<input type="radio" name="q5" value="13" /> 13
-		<br>
-		</div>
-
-		<h1><div id="result"></div></h1>
-
-
-		<button class="w3-button w3-light-grey w3-padding-large w3-margin-top" id="next">Next</button>
-		<button class="w3-button w3-light-grey w3-padding-large w3-margin-top" id="again">Start again</button>
-  		</div>
-  </header>
-</div>
-
-
-<script>
-// Open and close sidebar
-function openNav() {
-  document.getElementById("mySidebar").style.width = "60%";
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-function start(){
-
-}
-</script>
-
-<script>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
 		$(document).ready(function(){
 			var marke=0;
 			$("#div2").hide();
@@ -186,14 +75,55 @@ function start(){
 				location.reload(true);
 			});
 		});
-		$(document).ready(function(){
-			$("#quiz").hide();
-			$("#btnStart").click(function(){
-				$("#quiz-time").hide();
-				$("#quiz").show();
-			});
-		});
 	</script>
+</head>
+<body>
+
+	<div id="div1"><h1>1+1=?</h1>
+		<input type="radio" name="q1" value="1" /> 1
+		<input type="radio" name="q1" value="2" /> 2
+		<input type="radio" name="q1" value="3" /> 3
+		<input type="radio" name="q1" value="4" /> 4
+		<br>
+	</div>
+
+	<div id="div2"><h1>2+2=?</h1>
+		<input type="radio" name="q2" value="3" /> 3
+		<input type="radio" name="q2" value="4" /> 4
+		<input type="radio" name="q2" value="5" /> 5
+		<input type="radio" name="q2" value="6" /> 6
+		<br>
+	</div>
+
+	<div id="div3"><h1>3+3=?</h1>
+		<input type="radio" name="q3" value="4" /> 4
+		<input type="radio" name="q3" value="5" /> 5
+		<input type="radio" name="q3" value="6" /> 6
+		<input type="radio" name="q3" value="7" /> 7
+		<br>
+	</div>
+
+	<div id="div4"><h1>4+4=?</h1>
+		<input type="radio" name="q4" value="5" /> 5
+		<input type="radio" name="q4" value="6" /> 6
+		<input type="radio" name="q4" value="7" /> 7
+		<input type="radio" name="q4" value="8" /> 8
+		<br>
+	</div>
+
+	<div id="div5"><h1>5+5=?</h1>
+		<input type="radio" name="q5" value="10" /> 10
+		<input type="radio" name="q5" value="11" /> 11
+		<input type="radio" name="q5" value="12" /> 12
+		<input type="radio" name="q5" value="13" /> 13
+		<br>
+	</div>
+
+	<h1><div id="result"></div></h1>
+
+
+	<button id="next">Next</button>
+	<button id="again">Start again</button>
 
 </body>
 </html>
