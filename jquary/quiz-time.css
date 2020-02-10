@@ -1,0 +1,15 @@
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.bgimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('quiz-time.jpg');
+  min-height: 100%;
+}
+h1 {
+   font-size: 500%;
+}
+#div1,#div2,#div3,#div4,#div5{
+	font-size: 180%;
+}

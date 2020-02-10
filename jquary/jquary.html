@@ -7,25 +7,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<link rel="stylesheet" type="text/css" href="quiz-time.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-.bgimg {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('quiz-time.jpg');
-  min-height: 100%;
-}
-h1 {
-   font-size: 500%;
-}
-#div1,#div2,#div3,#div4,#div5{
-	font-size: 180%;
-}
-</style>
+<script src="quiz-time.js"></script>
 <body>
 
 <!-- Sidebar with image -->
@@ -98,102 +83,6 @@ h1 {
   		</div>
   </header>
 </div>
-
-
-<script>
-// Open and close sidebar
-function openNav() {
-  document.getElementById("mySidebar").style.width = "60%";
-  document.getElementById("mySidebar").style.display = "block";
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-function start(){
-
-}
-</script>
-
-<script>
-		$(document).ready(function(){
-			var marke=0;
-			$("#div2").hide();
-			$("#div3").hide();
-			$("#div4").hide();
-			$("#div5").hide();
-			$("#again").hide();
-			$("#next").click(function(){
-				if($("#div1").is(":visible")){
-					if($("input[name='q1']:checked").val()!=null){
-						if($("input[name='q1']:checked").val()==2){
-							marke++;
-						}
-						$("#div1").hide();
-						$("#div2").show();
-					}else{
-						alert("You have not selected any option!!!")
-					}
-				}else if($("#div2").is(":visible")){
-					if($("input[name='q2']:checked").val()!=null){
-						if($("input[name='q2']:checked").val()==4){
-							marke++;
-						}
-						$("#div2").hide();
-						$("#div3").show();
-					}else{
-						alert("You have not selected any option!!!")
-					}
-
-				}else if($("#div3").is(":visible")){
-					if($("input[name='q3']:checked").val()!=null){
-						if($("input[name='q3']:checked").val()==6){
-							marke++;
-						}
-						$("#div3").hide();
-						$("#div4").show();
-					}else{
-						alert("You have not selected any option!!!")
-					}
-
-				}else if($("#div4").is(":visible")){
-					if($("input[name='q4']:checked").val()!=null){
-						if($("input[name='q4']:checked").val()==8){
-							marke++;
-						}
-						$("#div4").hide();
-						$("#div5").show();
-					}else{
-						alert("You have not selected any option!!!")
-					}
-
-				}else if($("#div5").is(":visible")){
-					if($("input[name='q5']:checked").val()!=null){
-						if($("input[name='q5']:checked").val()==10){
-							marke++;
-						}
-						$("#div5").hide();
-						$("#next").hide();
-						$("#result").html("Result="+marke+"/5");
-						$("#again").show();
-					}else{
-						alert("You have not selected any option!!!")
-					}
-
-				}
-			});
-			$("#again").click(function(){
-				location.reload(true);
-			});
-		});
-		$(document).ready(function(){
-			$("#quiz").hide();
-			$("#btnStart").click(function(){
-				$("#quiz-time").hide();
-				$("#quiz").show();
-			});
-		});
-	</script>
 
 </body>
 </html>
